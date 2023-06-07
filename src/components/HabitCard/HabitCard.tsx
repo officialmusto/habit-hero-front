@@ -8,12 +8,12 @@ import VoteManager from "../VoteManager/VoteManager"
 import { Profile } from "../../types/models"
 import { VoteManagerFormData } from "../../types/forms"
 
-interface ProfileCardProps {
+interface HabitCardProps {
   profile: Profile;
   handleVote: (formData: VoteManagerFormData) => Promise<void>;
 }
 
-const ProfileCard = (props: ProfileCardProps): JSX.Element => {
+const HabitCard = (props: HabitCardProps): JSX.Element => {
   const { profile } = props
 
   return (
@@ -28,4 +28,4 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   )
 }
 
-export default ProfileCard
+export default HabitCard

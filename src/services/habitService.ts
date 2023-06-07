@@ -7,7 +7,7 @@ import { VoteManagerFormData } from "../types/forms"
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/votes`
 
-async function castVote(formData: VoteManagerFormData): Promise<Profile> {
+async function create(formData: VoteManagerFormData): Promise<Profile> {
   const res = await fetch(BASE_URL, {
     method: 'PUT',
     headers: {
@@ -19,4 +19,4 @@ async function castVote(formData: VoteManagerFormData): Promise<Profile> {
   return await res.json() as Profile
 }
 
-export { castVote }
+export { create }

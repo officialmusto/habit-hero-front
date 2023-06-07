@@ -1,8 +1,8 @@
 // css
-import styles from './Profiles.module.css'
+import styles from './MyHabits.css'
 
 // components
-import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import HabitCard from '../../components/HabitCard/HabitCard'
 
 // types
 import { Profile } from '../../types/models'
@@ -24,7 +24,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
   return (
     <main className="list">
       {profiles.map((profile: Profile) => (
-        <ProfileCard
+        <HabitCard
           key={profile.id}
           profile={profile}
           handleVote={handleVote}
@@ -33,5 +33,5 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
     </main>
   )
 }
- 
+
 export default Profiles
