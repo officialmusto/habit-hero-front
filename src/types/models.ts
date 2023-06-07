@@ -1,12 +1,16 @@
 /* --------===== custom models ====-------- */
 
-export interface Vote {
+export interface Habit {
   id: number;
-  value: number;
+  title: string;
+  description: string;
+  frequency: string;
+  start_date: Date;
+  target: string;
   profileId: number;
-  voterId: number;
-  createdAt: string;
   updatedAt: string;
+  createdAt: string;
+  last_completed_date?: Date;
 }
 
 /* ---------===== auth models =====--------- */
@@ -17,7 +21,6 @@ export interface Profile {
   id: number;
   createdAt: string;
   updatedAt: string;
-  votesReceived: Vote[];
 }
 
 export interface User {

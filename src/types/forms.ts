@@ -1,8 +1,12 @@
 /* ---------==== custom forms ====--------- */
 
-export interface VoteManagerFormData {
-  value: number;
-  profileId: number;
+export interface HabitFormData {
+  title: string,
+  description: string,
+  frequency: string,
+  start_date: Date,
+  target: number,
+  category: string
 }
 
 /* ---------===== auth forms =====--------- */
