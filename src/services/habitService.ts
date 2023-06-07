@@ -2,12 +2,12 @@
 import * as tokenService from "./tokenService"
 
 // types
-import { Profile } from "../types/models"
+import { Habit } from "../types/models"
 import { HabitFormData } from "../types/forms"
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/votes`
 
-async function createHabit(createFormData: HabitFormData): Promise<Habit> {
+async function createHabit(createFormData: HabitFormData): Promise<Habit|undefined> {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
@@ -17,7 +17,7 @@ async function createHabit(createFormData: HabitFormData): Promise<Habit> {
       },
       body: JSON.stringify(createFormData)
     })
-    return res.json() as Habit
+    return res.json() as unknown as Habit
   } catch (error) {
     console.log(error)
   }
