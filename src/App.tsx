@@ -54,10 +54,10 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
-  const handleAddHabit = async (habitFormData) => {
+  const handleAddHabit = async (habitFormData: CreateHabitFormData) => {
     const newHabit = await habitService.createHabit(habitFormData)
     setHabits([newHabit, ...habits])
-    navigate('/outfits')
+    navigate('/habits')
   }
 
   const handleVote = async (formData: CreateHabitFormData): Promise<void> => {

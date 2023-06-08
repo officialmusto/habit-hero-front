@@ -14,7 +14,7 @@ interface HabitsProps {
 const MyHabits = (props: HabitsProps): JSX.Element => {
   const { habits } = props
 
-  if (!habits.length) {
+  if (!habits) {
     return (
       <main>
         <h1>Loading...</h1>
