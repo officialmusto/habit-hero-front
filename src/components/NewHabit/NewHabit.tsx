@@ -8,18 +8,13 @@ import "./Newhabit.css"
 import { CreateHabitFormData } from "../../types/forms"
 
 interface CreateHabitProps {
+  formData: CreateHabitFormData
+  setFormData: (newState: CreateHabitFormData) => void
   handleAddHabit: (form: CreateHabitFormData) => void
 }
 
-const NewHabit = ({ handleAddHabit }: CreateHabitProps): JSX.Element => {
-  const [formData, setFormData] = useState<CreateHabitFormData>({
-    title: "",
-    description: "",
-    frequency: "",
-    start_date: new Date(),
-    target: 0,
-    category: "",
-  })
+const NewHabit = (props: CreateHabitProps): JSX.Element => {
+  const { setFormData, handleAddHabit, formData } = props
 
   const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [evt.currentTarget.name]: evt.target.value })
@@ -30,7 +25,8 @@ const NewHabit = ({ handleAddHabit }: CreateHabitProps): JSX.Element => {
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
-		handleAddHabit(formData)
+    handleAddHabit(formData)
+    
   }
 
   return (
@@ -50,6 +46,7 @@ const NewHabit = ({ handleAddHabit }: CreateHabitProps): JSX.Element => {
         <label>Description: </label>
         <textarea
           required
+          autoComplete="off"
           name="description"
           id="text-input"
           value={formData.description}
