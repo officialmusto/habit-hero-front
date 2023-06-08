@@ -7,6 +7,7 @@ import Signup from "./pages/Signup/Signup"
 import Login from "./pages/Login/Login"
 import Landing from "./pages/Landing/Landing"
 import Habits from "./pages/MyHabits/MyHabits"
+import NewHabit from "../src/components/NewHabit/NewHabit"
 
 // components
 import NavBar from "./components/NavBar/NavBar"
@@ -14,7 +15,6 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 
 // services
 import * as authService from "./services/authService"
-import * as profileService from "./services/profileService"
 import * as habitService from "./services/habitService"
 
 // styles
@@ -27,6 +27,17 @@ import { CreateHabitFormData } from "./types/forms"
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [habits, setHabits] = useState<Habit[]>([])
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    frequency: "",
+    start_date: Date(),
+    target: "",
+    category: "",
+})
+
+
+
   const navigate = useNavigate()
 
   useEffect((): void => {
@@ -67,7 +78,9 @@ function App(): JSX.Element {
           path="/habits"
           element={
             <ProtectedRoute user={user}>
-              <Habits habits={habits} handleVote={handleVote} />
+              <Habits habits={habits}/>
+              <NewHabit createFormData={formData}/>
+              
             </ProtectedRoute>
           }
         />

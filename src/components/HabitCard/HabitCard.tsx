@@ -1,7 +1,8 @@
 // assets
 import defaultPic from "../../assets/icons/habit.png"
 
-// components
+// css
+import './HabitCard.css'
 
 
 // types
@@ -10,7 +11,6 @@ import { CreateHabitFormData } from "../../types/forms"
 
 interface HabitCardProps {
   habit: Habit;
-  handleVote: (formData: CreateHabitFormData) => Promise<void>
 }
 
 const HabitCard = (props: HabitCardProps): JSX.Element => {
@@ -19,8 +19,9 @@ const HabitCard = (props: HabitCardProps): JSX.Element => {
 
   return (
     <article>
-      <h1>{habit.title}</h1>
-      <h3>{habit.description}</h3>
+      <h1 className="page-title">YOUR HABITS</h1>
+      <h2><b>Title:</b> {habit.title}</h2>
+      <h3><b>Description:</b> {habit.description}</h3>
     </article>
   )
 }

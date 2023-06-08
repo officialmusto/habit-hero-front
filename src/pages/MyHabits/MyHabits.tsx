@@ -1,5 +1,5 @@
 // css
-import styles from "./MyHabits.css"
+import  "../MyHabits/MyHabits.css"
 
 // components
 import HabitCard from "../../components/HabitCard/HabitCard"
@@ -24,8 +24,9 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
 
   return (
     <main className="list">
+      <h1 className="page-title">YOUR HABITS</h1>
       {habits.map((habit: Habit) => {
-        return <HabitCard habit={habit}/>
+        return <HabitCard habit={habit} />
       })}
     </main>
   )
@@ -36,7 +37,6 @@ export default MyHabits
 //! MOVE MAPPED HABITS TO NEW PAGE
 //! DOUBLE-CHECK PAGES
 //! FINISH cr *UD* COMPONENTS FRONTEND (HABITSAUTHSERVCE)
-//!  
-
+//!
 
 //! CSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
