@@ -1,5 +1,3 @@
-// assets
-import defaultPic from "../../assets/icons/habit.png"
 
 // css
 import './HabitCard.css'
@@ -7,7 +5,6 @@ import './HabitCard.css'
 
 // types
 import { Habit } from "../../types/models"
-import { CreateHabitFormData } from "../../types/forms"
 
 interface HabitCardProps {
   habit: Habit;

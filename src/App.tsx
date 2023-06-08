@@ -60,9 +60,6 @@ function App(): JSX.Element {
     navigate('/habits')
   }
 
-  const handleVote = async (formData: CreateHabitFormData): Promise<void> => {
-    return
-  }
 
   return (
     <>

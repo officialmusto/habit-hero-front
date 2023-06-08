@@ -28,17 +28,24 @@ async function indexHabits(): Promise<Habit[]> {
   return res.json() as Promise<Habit[]>
 }
 
-async function updateHabit(id: string, formData: UpdateHabitFormData) {
+async function updateHabit(id: string, updateFormData: UpdateHabitFormData) {
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${tokenService.getToken()}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(formData),
+    body: JSON.stringify(updateFormData),
   })
-  console.log(formData)
-  return res.json()
+  return res.json() 
 }
 
-export { createHabit, indexHabits, updateHabit }
+async function deleteHabit(id: number ) {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+    return res.json()
+}
+
+export { createHabit, indexHabits, updateHabit, deleteHabit }

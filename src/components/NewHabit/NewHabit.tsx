@@ -1,5 +1,5 @@
 // npm modules
-import { ChangeEvent, ChangeEventHandler, MouseEvent, useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
 
 // css
 import "./Newhabit.css"
@@ -21,14 +21,14 @@ const NewHabit = ({ handleAddHabit }: CreateHabitProps): JSX.Element => {
     category: "",
   })
 
-  const handleInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [evt.currentTarget.name]: evt.target.value })
   }
-  const handleTextAreaChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleTextAreaChange = (evt: ChangeEvent<HTMLTextAreaElement>) => {
     setFormData({ ...formData, [evt.currentTarget.name]: evt.target.value })
   }
 
-  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
 		handleAddHabit(formData)
   }
