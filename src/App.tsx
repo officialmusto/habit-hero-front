@@ -1,84 +1,73 @@
-// npm modules 
-import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+// npm modules
+import { useState, useEffect } from "react"
+import { Routes, Route, useNavigate } from "react-router-dom"
 
 // pages
-import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
-import Landing from './pages/Landing/Landing'
-import Profiles from './pages/MyHabits/MyHabits'
+import Signup from "./pages/Signup/Signup"
+import Login from "./pages/Login/Login"
+import Landing from "./pages/Landing/Landing"
+import Habits from "./pages/MyHabits/MyHabits"
 
 // components
-import NavBar from './components/NavBar/NavBar'
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import NavBar from "./components/NavBar/NavBar"
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute"
 
 // services
-import * as authService from './services/authService'
-import * as profileService from './services/profileService'
-import * as voteService from './services/habitService'
+import * as authService from "./services/authService"
+import * as profileService from "./services/profileService"
+import * as habitService from "./services/habitService"
 
 // styles
-import './App.css'
+import "./App.css"
 
 // types
-import { User, Profile } from './types/models'
-import { VoteManagerFormData } from './types/forms'
+import { User, Habit } from "./types/models"
+import { HabitFormData } from "./types/forms"
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
-  const [profiles, setProfiles] = useState<Profile[]>([])
+  const [habits, setHabits] = useState<Habit[]>([])
   const navigate = useNavigate()
 
   useEffect((): void => {
-    const fetchProfiles = async (): Promise<void> => {
+    const fetchHabits = async (): Promise<void> => {
       try {
-        const profileData: Profile[] = await profileService.getAllProfiles()
-        setProfiles(profileData)
+        const habitData: Habit[] = await habitService.indexHabit()
+        setHabits(habitData)
       } catch (error) {
         console.log(error)
       }
     }
-    user ? fetchProfiles() : setProfiles([])
+    user ? fetchHabits() : setHabits([])
   }, [user])
-  
+
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
-    navigate('/')
+    navigate("/")
   }
 
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
   }
 
-  const handleVote = async (formData: VoteManagerFormData): Promise<void> => {
-    try {
-      const updatedProfile = await voteService.castVote(formData)
-
-      setProfiles(profiles.map(profile => (
-        profile.id === updatedProfile.id ? updatedProfile : profile
-      )))
-    } catch (error) {
-      console.log(error);
-    }
+  const handleVote = async (formData: HabitFormData): Promise<void> => {
+    return
   }
 
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route 
-          path="/" 
-          element={<Landing user={user} handleLogout={handleLogout}/>}
+        <Route
+          path="/"
+          element={<Landing user={user} handleLogout={handleLogout} />}
         />
         <Route
-          path="/profiles"
+          path="/habits"
           element={
             <ProtectedRoute user={user}>
-              <Profiles
-                profiles={profiles}
-                handleVote={handleVote}
-              />
+              <Habits habits={habits} handleVote={handleVote} />
             </ProtectedRoute>
           }
         />

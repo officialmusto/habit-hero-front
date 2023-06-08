@@ -23,7 +23,7 @@ const NavBar = (props: NavBarProps): JSX.Element => {
       {user ?
         <ul>
           <li>Welcome, {user.name}</li>
-          <li><NavLink to="/profiles">PROFILES</NavLink></li>
+          <li><NavLink to="/habits">MY HABITS</NavLink></li>
           <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
         </ul>
       :

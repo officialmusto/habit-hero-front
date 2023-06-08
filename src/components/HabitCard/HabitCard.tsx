@@ -2,18 +2,19 @@
 import defaultPic from "../../assets/icons/profile.png"
 
 // components
-import VoteManager from "../VoteManager/VoteManager"
+
 
 // types
 import { Profile } from "../../types/models"
-import { VoteManagerFormData } from "../../types/forms"
+import { HabitFormData } from "../../types/forms"
 
 interface HabitCardProps {
   profile: Profile;
-  handleVote: (formData: VoteManagerFormData) => Promise<void>;
+  handleVote: (formData: HabitFormData) => Promise<void>;
 }
 
 const HabitCard = (props: HabitCardProps): JSX.Element => {
+
   const { profile } = props
 
   return (
@@ -23,7 +24,6 @@ const HabitCard = (props: HabitCardProps): JSX.Element => {
         alt={`${profile.name}'s avatar`} 
       />
       <h1>{profile.name}</h1>
-      <VoteManager { ...props } />
     </article>
   )
 }

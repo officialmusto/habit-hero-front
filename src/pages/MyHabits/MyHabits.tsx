@@ -5,33 +5,29 @@ import styles from './MyHabits.css'
 import HabitCard from '../../components/HabitCard/HabitCard'
 
 // types
-import { Profile } from '../../types/models'
-import { VoteManagerFormData } from '../../types/forms'
+import { Habit } from '../../types/models'
 
-interface ProfilesProps {
-  profiles: Profile[];
-  handleVote: (formData: VoteManagerFormData) => Promise<void>;
+interface HabitsProps {
+  habits: Habit[];
 }
 
-const Profiles = (props: ProfilesProps): JSX.Element => {
-  const { profiles, handleVote } = props
+const MyHabits = (props: HabitsProps): JSX.Element => {
+  const { habits } = props
 
 
-  if (!profiles.length) {
-    return <main className={styles.container}><h1>Loading...</h1></main>
+  if (!habits.length) {
+    return <main><h1>Loading...</h1></main>
   }
 
   return (
     <main className="list">
-      {profiles.map((profile: Profile) => (
-        <HabitCard
-          key={profile.id}
-          profile={profile}
-          handleVote={handleVote}
-        />
-      ))}
+      {habits.map((habit: Habit) => {
+        console.log(habit)
+        return <div />
+      }
+      )}
     </main>
   )
 }
 
-export default Profiles
+export default MyHabits
