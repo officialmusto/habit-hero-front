@@ -34,7 +34,6 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
 
 export default MyHabits
 
-//! MOVE MAPPED HABITS TO NEW PAGE
 //! DOUBLE-CHECK PAGES
 //! FINISH cr *UD* COMPONENTS FRONTEND (HABITSAUTHSERVCE)
 //!

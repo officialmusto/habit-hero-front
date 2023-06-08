@@ -27,15 +27,6 @@ import { CreateHabitFormData } from "./types/forms"
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
   const [habits, setHabits] = useState<Habit[]>([])
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    frequency: "",
-    start_date: Date(),
-    target: "",
-    category: "",
-})
-
 
 
   const navigate = useNavigate()
@@ -52,6 +43,7 @@ function App(): JSX.Element {
     user ? fetchHabits() : setHabits([])
   }, [user])
 
+
   const handleLogout = (): void => {
     authService.logout()
     setUser(null)
@@ -60,6 +52,12 @@ function App(): JSX.Element {
 
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
+  }
+
+  const handleAddHabit = async (habitFormData) => {
+    const newHabit = await habitService.createHabit(habitFormData)
+    setHabits([newHabit, ...habits])
+    navigate('/outfits')
   }
 
   const handleVote = async (formData: CreateHabitFormData): Promise<void> => {
@@ -78,8 +76,8 @@ function App(): JSX.Element {
           path="/habits"
           element={
             <ProtectedRoute user={user}>
-              <Habits habits={habits}/>
-              <NewHabit createFormData={formData}/>
+              <Habits habits={habits} />
+              <NewHabit handleAddHabit={handleAddHabit} />
               
             </ProtectedRoute>
           }

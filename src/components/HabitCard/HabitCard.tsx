@@ -19,7 +19,6 @@ const HabitCard = (props: HabitCardProps): JSX.Element => {
 
   return (
     <article>
-      <h1 className="page-title">YOUR HABITS</h1>
       <h2><b>Title:</b> {habit.title}</h2>
       <h3><b>Description:</b> {habit.description}</h3>
     </article>
