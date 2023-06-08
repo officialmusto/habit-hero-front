@@ -8,6 +8,8 @@ import './Newhabit.css'
 import { CreateHabitFormData } from "../../types/forms"
 
 const NewHabit = (props: CreateHabitFormData): JSX.Element => {
-  const 
+  return <div />
 
 }
+
+export default NewHabit

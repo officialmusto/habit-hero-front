@@ -26,7 +26,7 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
     <main className="list">
       <h1 className="page-title">YOUR HABITS</h1>
       {habits.map((habit: Habit) => {
-        return <HabitCard habit={habit} />
+        return <HabitCard key={habit.id} habit={habit} />
       })}
     </main>
   )
