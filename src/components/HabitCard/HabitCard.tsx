@@ -6,11 +6,11 @@ import defaultPic from "../../assets/icons/profile.png"
 
 // types
 import { Profile } from "../../types/models"
-import { HabitFormData } from "../../types/forms"
+import { CreateHabitFormData } from "../../types/forms"
 
 interface HabitCardProps {
   profile: Profile;
-  handleVote: (formData: HabitFormData) => Promise<void>;
+  handleVote: (formData: CreateHabitFormData) => Promise<void>;
 }
 
 const HabitCard = (props: HabitCardProps): JSX.Element => {

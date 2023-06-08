@@ -3,12 +3,12 @@ import * as tokenService from "./tokenService"
 
 // types
 import { Habit } from "../types/models"
-import { HabitFormData } from "../types/forms"
+import { CreateHabitFormData, UpdateHabitFormData } from "../types/forms"
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/habits`
 
 async function createHabit(
-  createFormData: HabitFormData
+  createFormData: CreateHabitFormData
 ): Promise<Habit | undefined> {
   const res = await fetch(BASE_URL, {
     method: "POST",
@@ -21,11 +21,24 @@ async function createHabit(
   return res.json() as unknown as Habit
 }
 
-async function indexHabit(): Promise<Habit[]> {
+async function indexHabits(): Promise<Habit[]> {
   const res = await fetch(BASE_URL, {
     headers: { Authorization: `Bearer ${tokenService.getToken()}` },
   })
   return res.json() as Promise<Habit[]>
 }
 
-export { createHabit, indexHabit }
+async function updateHabit(id: string, formData: UpdateHabitFormData) {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${tokenService.getToken()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
+  console.log(formData)
+  return res.json()
+}
+
+export { createHabit, indexHabits, updateHabit }

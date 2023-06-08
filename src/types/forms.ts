@@ -1,12 +1,20 @@
 /* ---------==== custom forms ====--------- */
 
-export interface HabitFormData {
+export interface CreateHabitFormData {
   title: string
   description: string
   frequency: string
   start_date: Date
   target: number
   category: string
+}
+
+export interface UpdateHabitFormData {
+  title?: string
+  description?: string
+  frequency?: string
+  target?: number
+  category?: string
 }
 
 /* ---------===== auth forms =====--------- */

@@ -22,7 +22,7 @@ import "./App.css"
 
 // types
 import { User, Habit } from "./types/models"
-import { HabitFormData } from "./types/forms"
+import { CreateHabitFormData } from "./types/forms"
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
@@ -32,7 +32,7 @@ function App(): JSX.Element {
   useEffect((): void => {
     const fetchHabits = async (): Promise<void> => {
       try {
-        const habitData: Habit[] = await habitService.indexHabit()
+        const habitData: Habit[] = await habitService.indexHabits()
         setHabits(habitData)
       } catch (error) {
         console.log(error)
@@ -51,7 +51,7 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
-  const handleVote = async (formData: HabitFormData): Promise<void> => {
+  const handleVote = async (formData: CreateHabitFormData): Promise<void> => {
     return
   }
 
