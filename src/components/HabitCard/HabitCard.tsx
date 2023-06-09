@@ -29,8 +29,8 @@ const HabitCard = (props: HabitCardProps): JSX.Element => {
 
   return (
     <article className="habit-card">
-      <h2 className="title"><b>Title</b> {habit.title}</h2>
-      <h3 className="description"><b>Description:</b> {habit.description}</h3>
+      <h2 className="title">{habit.title}</h2>
+      <h3 className="description">{habit.description}</h3>
       
       <button onClick={handleUpdateButton} className="edit-button">edit</button>
       <button onClick={handleDeleteButton} className="delete-button">X</button>

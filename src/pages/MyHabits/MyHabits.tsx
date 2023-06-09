@@ -99,7 +99,7 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
   }
 
   return (
-    <main className="list">
+    <main>
       <h1 className="page-title">YOUR HABITS</h1>
       <CreateUpdateHabit
         handleAddHabit={handleAddHabit}
