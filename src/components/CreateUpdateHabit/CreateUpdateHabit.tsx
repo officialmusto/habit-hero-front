@@ -26,9 +26,13 @@ const NewHabit = (props: CreateHabitProps): JSX.Element => {
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
-    handleUpdateHabit(formData)
+    if (formData.id) {
+      handleUpdateHabit(formData)
+    } else {
+      handleAddHabit(formData)
+    }
   }
-  
+
   return (
     <main>
       <form onSubmit={handleSubmit}>
