@@ -66,6 +66,15 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
       return habit.id === updatedHabit.id ? updatedHabit : habit
     })
     setHabits(updatedHabits)
+    setFormData({
+      id: undefined,
+      title: "",
+      description: "",
+      frequency: "",
+      start_date: new Date(),
+      target: "",
+      category: "",
+    })
   }
 
   const handleUpdateStart = (habit: Habit): void => {
