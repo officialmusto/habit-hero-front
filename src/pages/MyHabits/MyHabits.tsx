@@ -62,8 +62,10 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
 
   const handleUpdateHabit = async (updateForm: CreateHabitFormData): Promise<void> => {
     const updatedHabit = await habitService.updateHabit(updateForm)
-    
-    setHabits([updatedHabit, ...habits])
+    const updatedHabits = habits.map(habit => {
+      return habit.id === updatedHabit.id ? updatedHabit : habit
+    })
+    setHabits(updatedHabits)
   }
 
   const handleUpdateStart = (habit: Habit): void => {

@@ -39,6 +39,7 @@ async function updateHabit(updateFormData: CreateHabitFormData): Promise<Habit> 
     },
     body: JSON.stringify(updateFormData),
   })
+  
   return res.json() as Promise<Habit>
 }
 
