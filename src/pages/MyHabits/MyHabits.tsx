@@ -101,6 +101,12 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
   return (
     <main className="list">
       <h1 className="page-title">YOUR HABITS</h1>
+      <CreateUpdateHabit
+        handleAddHabit={handleAddHabit}
+        formData={formData}
+        setFormData={setFormData}
+        handleUpdateHabit={handleUpdateHabit}
+      />
       {habits.map((habit: Habit) => {
         return (
           <HabitCard
@@ -111,12 +117,6 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
           />
         )
       })}
-      <CreateUpdateHabit
-        handleAddHabit={handleAddHabit}
-        formData={formData}
-        setFormData={setFormData}
-        handleUpdateHabit={handleUpdateHabit}
-      />
     </main>
   )
 }
