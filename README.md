@@ -7,7 +7,7 @@
 ### Welcome to Habit Hero, the ultimate productivity app designed to help you build and manage your habits effectively. With Habit Hero, you can unlock your full potential and achieve your goals with ease.
 ---
 ## Features
-- ### **Effortless Habit Creation**: Habit Hero simplifies habit creation. Define your habits, set their frequency, and choose a start date. Habit Hero will handle the rest, reminding you to stay consistent and committed.
+- ### **Effortless Habit Creation**: Habit Hero simplifies habit creation. Define your habits so you can stay consistent and committed.
 
 ---
 ## Technologies Used
