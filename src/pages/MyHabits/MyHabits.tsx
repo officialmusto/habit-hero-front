@@ -15,7 +15,7 @@ import { CreateHabitFormData } from "../../types/forms"
 import { Habit, User } from "../../types/models"
 
 //services
-import * as habitService from '../../services/habitService'
+import * as habitService from "../../services/habitService"
 
 interface HabitsProps {
   user: User
@@ -64,9 +64,11 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
     resetForm()
   }
 
-  const handleUpdateHabit = async (updateForm: CreateHabitFormData): Promise<void> => {
+  const handleUpdateHabit = async (
+    updateForm: CreateHabitFormData
+  ): Promise<void> => {
     const updatedHabit = await habitService.updateHabit(updateForm)
-    const updatedHabits = habits.map(habit => {
+    const updatedHabits = habits.map((habit) => {
       return habit.id === updatedHabit.id ? updatedHabit : habit
     })
     setHabits(updatedHabits)
@@ -87,7 +89,7 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
 
   const handleDeleteHabit = async (id: number): Promise<void> => {
     await habitService.deleteHabit(id)
-    setHabits(habits.filter(b => b.id !== id))
+    setHabits(habits.filter((b) => b.id !== id))
   }
 
   if (!habits) {
@@ -108,15 +110,15 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
             habit={habit}
             handleDeleteHabit={handleDeleteHabit}
             handleUpdateStart={handleUpdateStart}
-            />
-            )
-          })}
-          <CreateUpdateHabit
-          handleAddHabit={handleAddHabit}
-          formData={formData}
-          setFormData={setFormData}
-          handleUpdateHabit={handleUpdateHabit}
           />
+        )
+      })}
+      <CreateUpdateHabit
+        handleAddHabit={handleAddHabit}
+        formData={formData}
+        setFormData={setFormData}
+        handleUpdateHabit={handleUpdateHabit}
+      />
     </main>
   )
 }
