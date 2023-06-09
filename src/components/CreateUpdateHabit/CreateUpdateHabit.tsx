@@ -35,8 +35,8 @@ const NewHabit = (props: CreateHabitProps): JSX.Element => {
 
   return (
     <main>
-      <form onSubmit={handleSubmit}>
-        <label>Title: </label>
+      <form onSubmit={handleSubmit} className="form">
+        <label className="title">Title: </label>
         <input
           required
           autoComplete="off"
@@ -47,7 +47,7 @@ const NewHabit = (props: CreateHabitProps): JSX.Element => {
           placeholder='"My New Habit"'
           onChange={handleInputChange}
         />
-        <label>Description: </label>
+        <label className="description">Description: </label>
         <textarea
           required
           autoComplete="off"
@@ -56,8 +56,9 @@ const NewHabit = (props: CreateHabitProps): JSX.Element => {
           value={formData.description}
           placeholder="Description"
           onChange={handleTextAreaChange}
+          className="textarea"
         />
-        <button type="submit">SUBMIT</button>
+        <button type="submit" className="add-habit-button">ADD HABIT</button>
       </form>
     </main>
   )

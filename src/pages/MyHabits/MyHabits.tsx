@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 
 // css
-import "../MyHabits/MyHabits.css"
+import styles from "../MyHabits/MyHabits.css"
 
 // components
 import HabitCard from "../../components/HabitCard/HabitCard"

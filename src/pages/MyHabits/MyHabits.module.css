@@ -1,9 +1,8 @@
-h1 {
+.page-title {
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: 'Geologica', sans-serif;
+  
 }
 
-.container > p {
-  margin: 8px;
-}

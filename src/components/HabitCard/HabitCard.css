@@ -1,5 +1,50 @@
 .page-title {
+  font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Geologica', sans-serif;
+  color: whitesmoke;
 } 
+
+.habit-card { 
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  max-width: 400px;
+  border-radius: 19px;
+  margin-bottom: 50px;
+  flex-direction: column;
+  background-color: #7492d2;
+  box-shadow: 15px 30px 20px #081022b4;
+}
+
+.edit-button {
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  font-weight: 900;
+  width: 250px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  background: #5d6aad;
+  border: solid white 4px;
+  border-radius: 10px;
+  padding: 10px 24px 10px 24px;
+}
+
+.delete-button {
+  color: rgb(237, 237, 237);
+  font-size: 26px;
+  cursor: pointer;
+  width: 150px;
+  font-weight: 900;
+  border-radius: 5px;
+  text-align: center;
+  background: #651b1b;
+  border: solid white 4px;
+  border-radius: 10px;
+}

@@ -4,21 +4,19 @@
   align-items: center;
   flex-direction: column;
   font-family: 'Geologica', sans-serif;
+  color: rgb(236, 236, 236);
 }
 
 .form {
   width: 100%;
   display: flex;
   padding: 20px;
-  max-width: 500px;
-  border-radius: 5px;
+  max-width: 400px;
+  border-radius: 19px;
   margin-bottom: 50px;
   flex-direction: column;
-  background-color: white;
-  border: 1px solid var(--border);
-  box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+  background-color: #2c5fcc71;
+  box-shadow: 15px 30px 20px #081022b4;
 }
 
 .form label,
@@ -36,12 +34,12 @@
 input {
   border: none;
   padding: 12px;
-  font-size: 16px;
+  font-size: 26px;
   resize: vertical;
-  border-radius: 5px;
+  border-radius: 12px;
+  font-family: 'Geologica', sans-serif;
   background: whitesmoke;
   margin: 7px 0px 14px 0px;
-  border: 1px solid var(--border);
 }
 
 label {
@@ -51,26 +49,28 @@ label {
 
 .container button {
   color: white;
-  font-size: 16px;
+  font-size: 26px;
   cursor: pointer;
   font-weight: 900;
   margin-bottom: 10px;
   border-radius: 5px;
   text-align: center;
-  background: black;
-  border: 1px solid black;
+  background: #5d6aad;
+  border: solid white 4px;
+  border-radius: 10px;
   padding: 10px 24px 10px 24px;
 }
 
 .container a button {
-  color: black;
-  font-size: 16px;
+  color: rgb(237, 237, 237);
+  font-size: 26px;
   cursor: pointer;
   font-weight: 900;
   border-radius: 5px;
   text-align: center;
-  background: whitesmoke;
-  border: 1px solid var(--border);
+  background: #651b1b;
+  border: solid white 4px;
+  border-radius: 10px;
 }
 
 input[type="file"] {
@@ -87,5 +87,5 @@ input::file-selector-button {
   padding: 14px 28px;
   margin-right: 28px;
   text-align: center;
-  border: 1px solid var(--border);
+  border: none;
 }
