@@ -2,6 +2,8 @@
 
 ![habit-hero-logo](https://github.com/officialmusto/habit-hero-front/assets/98829614/601e1926-53c0-416c-8005-835ce4327530)
 
+![Screenshot 2023-06-09 at 9 15 49 AM](https://github.com/officialmusto/habit-hero-front/assets/98829614/a79314af-e8e6-4257-aaa9-c5cd7e2b5d8c)
+
 ### Welcome to Habit Hero, the ultimate productivity app designed to help you build and manage your habits effectively. With Habit Hero, you can unlock your full potential and achieve your goals with ease.
 ---
 ## Features
