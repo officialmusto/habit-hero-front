@@ -46,9 +46,7 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
     user ? fetchHabits() : setHabits([])
   }, [user])
 
-  const handleAddHabit = async (habitFormData: CreateHabitFormData) => {
-    const CreateUpdateHabit = await habitService.createHabit(habitFormData)
-    setHabits([CreateUpdateHabit, ...habits])
+  const resetForm = () => {
     setFormData({
       id: undefined,
       title: "",
@@ -60,21 +58,19 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
     })
   }
 
+  const handleAddHabit = async (habitFormData: CreateHabitFormData) => {
+    const CreateUpdateHabit = await habitService.createHabit(habitFormData)
+    setHabits([CreateUpdateHabit, ...habits])
+    resetForm()
+  }
+
   const handleUpdateHabit = async (updateForm: CreateHabitFormData): Promise<void> => {
     const updatedHabit = await habitService.updateHabit(updateForm)
     const updatedHabits = habits.map(habit => {
       return habit.id === updatedHabit.id ? updatedHabit : habit
     })
     setHabits(updatedHabits)
-    setFormData({
-      id: undefined,
-      title: "",
-      description: "",
-      frequency: "",
-      start_date: new Date(),
-      target: "",
-      category: "",
-    })
+    resetForm()
   }
 
   const handleUpdateStart = (habit: Habit): void => {
