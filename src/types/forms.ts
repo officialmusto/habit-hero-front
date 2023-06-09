@@ -1,11 +1,12 @@
 /* ---------==== custom forms ====--------- */
 
 export interface CreateHabitFormData {
+  id?: number
   title: string
   description: string
   frequency: string
   start_date: Date
-  target: number
+  target: string
   category: string
 }
 
@@ -13,7 +14,7 @@ export interface UpdateHabitFormData {
   title?: string
   description?: string
   frequency?: string
-  target?: number
+  target?: string
   category?: string
 }
 

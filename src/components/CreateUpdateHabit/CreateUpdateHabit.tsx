@@ -2,19 +2,20 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 
 // css
-import "./Newhabit.css"
+import "./CreateUpdateHabit.css"
 
 // forms
-import { CreateHabitFormData } from "../../types/forms"
+import { CreateHabitFormData, UpdateHabitFormData } from "../../types/forms"
 
 interface CreateHabitProps {
   formData: CreateHabitFormData
   setFormData: (newState: CreateHabitFormData) => void
   handleAddHabit: (form: CreateHabitFormData) => void
+  handleUpdateHabit: (updatedState: CreateHabitFormData) => void
 }
 
 const NewHabit = (props: CreateHabitProps): JSX.Element => {
-  const { setFormData, handleAddHabit, formData } = props
+  const { setFormData, handleAddHabit, handleUpdateHabit, formData } = props
 
   const handleInputChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [evt.currentTarget.name]: evt.target.value })
@@ -25,10 +26,9 @@ const NewHabit = (props: CreateHabitProps): JSX.Element => {
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
-    handleAddHabit(formData)
-    
+    handleUpdateHabit(formData)
   }
-
+  
   return (
     <main>
       <form onSubmit={handleSubmit}>

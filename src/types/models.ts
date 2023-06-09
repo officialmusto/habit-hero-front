@@ -7,6 +7,7 @@ export interface Habit {
   frequency: string
   start_date: Date
   target: string
+  category: string
   profileId: number
   updatedAt: string
   createdAt: string

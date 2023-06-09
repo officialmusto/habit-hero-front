@@ -10,6 +10,8 @@ const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/habits`
 async function createHabit(
   createFormData: CreateHabitFormData
 ): Promise<Habit> {
+  console.log(createFormData);
+  
   const res = await fetch(BASE_URL, {
     method: "POST",
     headers: {
@@ -18,7 +20,7 @@ async function createHabit(
     },
     body: JSON.stringify(createFormData),
   })
-  return res.json() as unknown as Habit
+  return res.json() as Promise<Habit>
 }
 
 async function indexHabits(): Promise<Habit[]> {
@@ -28,8 +30,8 @@ async function indexHabits(): Promise<Habit[]> {
   return res.json() as Promise<Habit[]>
 }
 
-async function updateHabit(id: number, updateFormData: UpdateHabitFormData) {
-  const res = await fetch(`${BASE_URL}/${id}`, {
+async function updateHabit(updateFormData: CreateHabitFormData): Promise<Habit> {
+  const res = await fetch(`${BASE_URL}/${updateFormData.id}`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${tokenService.getToken()}`,
@@ -37,7 +39,7 @@ async function updateHabit(id: number, updateFormData: UpdateHabitFormData) {
     },
     body: JSON.stringify(updateFormData),
   })
-  return res.json() 
+  return res.json() as Promise<Habit>
 }
 
 async function deleteHabit(id: number ) {

@@ -6,7 +6,7 @@ import "../MyHabits/MyHabits.css"
 
 // components
 import HabitCard from "../../components/HabitCard/HabitCard"
-import NewHabit from "../../components/NewHabit/NewHabit"
+import CreateUpdateHabit from "../../components/CreateUpdateHabit/CreateUpdateHabit"
 
 // form
 import { CreateHabitFormData } from "../../types/forms"
@@ -25,11 +25,12 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
   const { user } = props
   const [habits, setHabits] = useState<Habit[]>([])
   const [formData, setFormData] = useState<CreateHabitFormData>({
+    id: undefined,
     title: "",
     description: "",
     frequency: "",
     start_date: new Date(),
-    target: 0,
+    target: "",
     category: "",
   })
 
@@ -46,22 +47,40 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
   }, [user])
 
   const handleAddHabit = async (habitFormData: CreateHabitFormData) => {
-    const newHabit = await habitService.createHabit(habitFormData)
-    setHabits([newHabit, ...habits])
+    const CreateUpdateHabit = await habitService.createHabit(habitFormData)
+    setHabits([CreateUpdateHabit, ...habits])
     setFormData({
+      id: undefined,
       title: "",
       description: "",
       frequency: "",
       start_date: new Date(),
-      target: 0,
+      target: "",
       category: "",
     })
   }
-  
+
+  const handleUpdateHabit = async (updateForm: CreateHabitFormData): Promise<void> => {
+    const updatedHabit = await habitService.updateHabit(updateForm)
+    
+    setHabits([updatedHabit, ...habits])
+  }
+
+  const handleUpdateStart = (habit: Habit): void => {
+    setFormData({
+      id: habit.id,
+      title: habit.title,
+      description: habit.description,
+      frequency: habit.frequency,
+      start_date: habit.start_date,
+      target: habit.target,
+      category: habit.category,
+    })
+  }
+
   const handleDeleteHabit = async (id: number): Promise<void> => {
     await habitService.deleteHabit(id)
     setHabits(habits.filter(b => b.id !== id))
-
   }
 
   if (!habits) {
@@ -81,13 +100,15 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
             key={habit.id}
             habit={habit}
             handleDeleteHabit={handleDeleteHabit}
+            handleUpdateStart={handleUpdateStart}
             />
             )
           })}
-          <NewHabit
+          <CreateUpdateHabit
           handleAddHabit={handleAddHabit}
           formData={formData}
           setFormData={setFormData}
+          handleUpdateHabit={handleUpdateHabit}
           />
     </main>
   )
@@ -100,3 +121,5 @@ export default MyHabits
 //!
 
 //! CSS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// check and see backend to stop users from updating unnecessary keys
