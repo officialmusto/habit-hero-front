@@ -1,6 +1,6 @@
 /* ---------==== custom forms ====--------- */
 
-export interface CreateHabitFormData {
+export interface CreateUpdateHabitFormData {
   id?: number
   title: string
   description: string
@@ -8,14 +8,6 @@ export interface CreateHabitFormData {
   start_date: Date
   target: string
   category: string
-}
-
-export interface UpdateHabitFormData {
-  title?: string
-  description?: string
-  frequency?: string
-  target?: string
-  category?: string
 }
 
 /* ---------===== auth forms =====--------- */

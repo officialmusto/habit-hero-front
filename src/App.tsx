@@ -1,5 +1,5 @@
 // npm modules
-import { useState} from "react"
+import { useState } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
 // pages
@@ -20,7 +20,6 @@ import "./App.css"
 
 // types
 import { User } from "./types/models"
-
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
@@ -47,7 +46,7 @@ function App(): JSX.Element {
           path="/habits"
           element={
             <ProtectedRoute user={user}>
-              <MyHabits user={user}/>
+              <MyHabits user={user} />
             </ProtectedRoute>
           }
         />

@@ -1,17 +1,17 @@
 // npm modules
-import { ChangeEvent, FormEvent, useState } from "react"
+import { ChangeEvent, FormEvent } from "react"
 
 // css
 import "./CreateUpdateHabit.css"
 
 // forms
-import { CreateHabitFormData, UpdateHabitFormData } from "../../types/forms"
+import { CreateUpdateHabitFormData } from "../../types/forms"
 
 interface CreateHabitProps {
-  formData: CreateHabitFormData
-  setFormData: (newState: CreateHabitFormData) => void
-  handleAddHabit: (form: CreateHabitFormData) => void
-  handleUpdateHabit: (updatedState: CreateHabitFormData) => void
+  formData: CreateUpdateHabitFormData
+  setFormData: (newState: CreateUpdateHabitFormData) => void
+  handleAddHabit: (form: CreateUpdateHabitFormData) => void
+  handleUpdateHabit: (updatedState: CreateUpdateHabitFormData) => void
 }
 
 const NewHabit = (props: CreateHabitProps): JSX.Element => {

@@ -9,7 +9,7 @@ import HabitCard from "../../components/HabitCard/HabitCard"
 import CreateUpdateHabit from "../../components/CreateUpdateHabit/CreateUpdateHabit"
 
 // form
-import { CreateHabitFormData } from "../../types/forms"
+import { CreateUpdateHabitFormData } from "../../types/forms"
 
 // types
 import { Habit, User } from "../../types/models"
@@ -18,13 +18,13 @@ import { Habit, User } from "../../types/models"
 import * as habitService from "../../services/habitService"
 
 interface HabitsProps {
-  user: User
+  user: User | null
 }
 
 const MyHabits = (props: HabitsProps): JSX.Element => {
   const { user } = props
   const [habits, setHabits] = useState<Habit[]>([])
-  const [formData, setFormData] = useState<CreateHabitFormData>({
+  const [formData, setFormData] = useState<CreateUpdateHabitFormData>({
     id: undefined,
     title: "",
     description: "",
@@ -58,14 +58,14 @@ const MyHabits = (props: HabitsProps): JSX.Element => {
     })
   }
 
-  const handleAddHabit = async (habitFormData: CreateHabitFormData) => {
+  const handleAddHabit = async (habitFormData: CreateUpdateHabitFormData) => {
     const CreateUpdateHabit = await habitService.createHabit(habitFormData)
     setHabits([CreateUpdateHabit, ...habits])
     resetForm()
   }
 
   const handleUpdateHabit = async (
-    updateForm: CreateHabitFormData
+    updateForm: CreateUpdateHabitFormData
   ): Promise<void> => {
     const updatedHabit = await habitService.updateHabit(updateForm)
     const updatedHabits = habits.map((habit) => {
