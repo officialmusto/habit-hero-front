@@ -6,9 +6,7 @@
 ---
 ## Features
 - ### **Effortless Habit Creation**: Habit Hero simplifies habit creation. Define your habits, set their frequency, and choose a start date. Habit Hero will handle the rest, reminding you to stay consistent and committed.
-- ### **Seamless Daily Habit Management**: With Habit Hero, managing your daily habits becomes a breeze. Mark habits as complete or incomplete, track your streaks, and visualize your progress through intuitive charts and graphs.
-- ### **Motivational Reminders**: Stay motivated with personalized reminders from Habit Hero. Set up custom notifications to receive inspiring quotes, gentle nudges, or motivational messages throughout the day.
-- ### **Comprehensive Progress Tracking**: Habit Hero provides valuable insights into your habit-building journey. Gain analytics and statistics on completion rates, streaks, and overall progress, empowering you to make informed decisions.
+
 ---
 ## Technologies Used
 ### **Front-end**: 

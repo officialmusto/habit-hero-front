@@ -1,8 +1,6 @@
 // modules
 import { useState, useEffect } from "react"
 
-// css
-import styles from "../MyHabits/MyHabits.css"
 
 // components
 import HabitCard from "../../components/HabitCard/HabitCard"
